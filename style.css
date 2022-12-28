@@ -1,0 +1,111 @@
+header{
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.navbar-bot {
+    border-bottom: 1px solid #e0e0e0;
+    background-color: #fff;
+}
+
+body header .navbar-bot div div ul {
+    padding-right: 100px;
+}
+
+.tittle-ofert{
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+.footer-container {
+    margin-top: 200px;
+    background-color: #121212;
+    color: #fff;
+
+    bottom: 0;
+}
+
+.footer-top{
+    display: flex;
+    align-items: center;
+}
+
+.icon{
+    width: 50px;
+    padding-left: 10px
+}
+
+
+.seccion-contacto{
+    margin-top: 100px;
+}
+
+.carrito-logo{
+    color:black
+}
+
+.tabla-contenedora{
+    display: flex;
+}
+
+.item-venta{
+    padding: 40px 4px 56px;
+    display: flex;
+    width: 80%;
+flex-direction: column;
+}
+
+
+.articulo-carrito{
+    display: flex;
+    cursor: pointer;
+  
+}
+
+
+
+.nombre-item{
+    font-size: 20px;
+    line-height: 1.25;
+}
+
+.envio-item{
+    margin-top: 12px;
+    display: flex;
+    align-items: flex-start;
+    line-height: 1.3em;
+    color: #00a650;
+    font-size: 14px;
+}
+
+.botones-item{
+    margin-top: 28px;
+}
+
+.lista-botones{
+    display: flex;
+    flex-direction: row;
+    padding: 0 0 4px;
+    list-style: none;
+}
+
+.lista-botones li {
+    margin: 0;
+    padding: 0 10px;
+    color: #3483fa;
+}
+
+.precio-carrito{
+    margin-left: auto;
+    line-height: 1.25;
+    text-align: right;
+}
+
+.precio-numero{
+    display: flex;
+    gap: 4px;
+    justify-content: end;
+    font-size: 26px;
+}
