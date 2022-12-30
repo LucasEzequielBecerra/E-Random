@@ -12,7 +12,51 @@
     <title>Home | Pagina de Inicio</title>
 </head>
 
-<body>
+<body class="modo-claro">
+
+    <header>
+
+        <nav class="navbar navbar-expand-lg navbar-bot">
+            <div class="container-fluid ">
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                    <ul class="navbar-nav  ">
+                        <li class="item-nav">
+                            <a class="nav-link " aria-current="page" href="index.html">Inicio</a>
+                        </li>
+                        <li class="item-nav">
+                            <a class="nav-link" href="#">Productos</a>
+                        </li>
+
+                        <li class="item-nav">
+                            <a class="nav-link " aria-current="page" href="#">Sucursales</a>
+                        </li>
+                        <li class="item-nav">
+                            <a class="nav-link" href="#">Sobre nosotros</a>
+                        </li>
+                        <li class="item-nav">
+                            <a class="nav-link" href="contacto.html">Contacto</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex align-content-end " role="search">
+                        <input class="form-control" type="search" placeholder="¿Que estas buscando?"
+                            aria-label="Search">
+                        <button class="btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </form>
+                    <a href="carrito.html">
+                        <button class="btn" type="submit"><i class="fa-solid fa-cart-shopping carrito-logo"
+                                id="carrito-logo"></i></button>
+                    </a>
+                </div>
+            </div>
+            <button id="claro-oscuro"> Modo Oscuro </button>
+        </nav>
+    </header>
 
     <section>
         <div class="container mt-5">
@@ -20,24 +64,6 @@
             <hr>
             <div class="tabla-contenedora">
                 <section class="item-venta">
-                    <article class="articulo-carrito row">
-                        <div class="nombre-envio col-9">
-                            <span class="nombre-item">Puff con baul</span>
-                            <p class="envio-item">Envio gratis</p>
-                            <div class="botones-item">
-                                <ul class="lista-botones">
-                                    <li>Eliminar</li>
-                                    <li>Comprar ahora</li>
-                                    <li>Guardar para despues</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="precio-carrito col-3">
-                            <span class="precio-numero">
-                                $5800
-                            </span>
-                        </div>
-                    </article>
                 </section>
                 <div class="footer-tabla">
 
@@ -52,10 +78,37 @@
 
 
 
+    <footer class="footer-container container-fluid footer-carrito">
+        <div class="row">
+            <div class="col d-flex justify-content-end footer-top">
+                <a href="https://es-la.facebook.com/">
+                    <img class="img-fluid img-content icon" src="Imagenes/facebook.png" alt="icono de facebook">
+                </a>
+                <a href="https://www.instagram.com/">
+                    <img class="img-fluid img-content icon" src="Imagenes/instagram.png" alt="logo de instagram">
+                </a>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col d-flex justify-content-center footer-bot">
+                <p>Tienda 123</p>
+                <p>/</p>
+                <p>Av. Sta Fe 1780, Av. Callao 1400, Uruguay 1380</p>
+
+            </div>
+
+        </div>
+        <div class="fixed-bottom d-flex justify-content-end">
+            <button type="button" class="btn btn-link"><a href="https://web.whatsapp.com/"> <img
+                        src="Imagenes/whatsapp.png" alt="logo de whatsapp"></a></button>
+        </div>
+    </footer>
 
 
 
-    <script src="index.js"></script>
+    
+    <script src="modos.js"></script>
     <script src="carrito.js"></script>
 </body>
 

@@ -13,18 +13,41 @@ const productos = [
     imagen:
       "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/120/603/products/black-121-78909eedb5103ddff916578234719635-1024-1024.jpg",
   },
+  {
+    id: 3,
+    nombre: "Puff con Baul Doble",
+    precio: "$12100",
+    imagen:
+      "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/120/603/products/puff-doble-11-3af34d094c79df408816444075196184-1024-1024.jpg",
+  },
+  {
+    id: 4,
+    nombre: "Sofa Cama",
+    precio: "$30100",
+    imagen:
+      "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/120/603/products/muebles-cuadr-3771-55d6a498300c6916ab16496938229364-1024-1024.jpeg",
+  },
+  {
+    id: 5,
+    nombre: "Sillon Cabecero",
+    precio: "$20100",
+    imagen:
+      "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/120/603/products/matera-con-cabezal1-1a37a5fd6227c5d44316600762901717-1024-1024.png",
+  },
+  {
+    id: 6,
+    nombre: "Mesa Comedor",
+    precio: "$40100",
+    imagen:
+      "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/120/603/products/mesa-comedor-de-140x1401-08b8106bc78e15ac5e16648498778436-1024-1024.png",
+  },
 ];
 
-const contenedorCarrito = document.querySelector(".item-venta");
 const contenedor = document.querySelector(".fila-productos");
 const carritoLogo = document.querySelector("#carrito-logo");
 
 const subirAlLs = (clave, valor) => {
   localStorage.setItem(clave, JSON.stringify(valor));
-};
-
-const obtenerDelLs = (clave) => {
-  return JSON.parse(localStorage.getItem(clave));
 };
 
 let carrito = [];
@@ -35,8 +58,10 @@ productos.forEach((element) => {
   const card = document.createElement("div");
   card.className = "col-4";
   card.innerHTML = `
-    <div class="card">
-      <img src="${element.imagen}" class="card-img-top" alt="imagen demostrativa">
+    <div class="card ">
+      <div class="card-personalizada">
+        <img src="${element.imagen}" class="card-img-top img-fluid" alt="imagen demostrativa">
+      </div>
       <div class="card-body">
         <h5 class="card-tittle d-flex justify-content-center nombre-de-producto">${element.nombre}</h5>
         <p class="card-text d-flex justify-content-center precio-de-producto">${element.precio}</p>
@@ -58,41 +83,8 @@ productos.forEach((element) => {
 const agregoAlCarrito = (pordId) => {
   const item = productos.find((prod) => prod.id === pordId);
   carrito.push(item);
-  // actualizarCarrito();
 
   console.log(carrito);
 };
-
-const productoParaCarrito = obtenerDelLs("producto");
-
-console.log(productoParaCarrito);
-
-// const actualizarCarrito = () => {
-//   contenedorCarrito.innerHTML = "";
-
-//   productoParaCarrito.forEach((prod) => {
-//     const article = document.createElement("article");
-//     article.className = "articulo-carrito row";
-//     article.innerHTML = `
-//     <div class="nombre-envio col-9">
-//     <span class="nombre-item">${prod.nombre}</span>
-//     <p class="envio-item">Envio gratis</p>
-//     <div class="botones-item">
-//         <ul class="lista-botones">
-//             <li>Eliminar</li>
-//             <li>Comprar ahora</li>
-//             <li>Guardar para despues</li>
-//         </ul>
-//     </div>
-// </div>
-// <div class="precio-carrito col-3">
-//     <span class="precio-numero">
-//         ${prod.precio}
-//     </span>
-// </div>
-//     `;
-//     contenedorCarrito.appendChild(article);
-//   });
-// };
 
 // funciones de subir y obtener del LocalStorage

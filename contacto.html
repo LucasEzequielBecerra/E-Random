@@ -9,27 +9,73 @@
     <script src="https://kit.fontawesome.com/28d7bb832d.js" crossorigin="anonymous"></script>
     <title>Contacto | Pagina de Contacto</title>
 </head>
-<body>
+<body class="modo-claro">
 
-    <section class="container">
+    <header>
+
+        <nav class="navbar navbar-expand-lg navbar-bot">
+            <div class="container-fluid ">
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                    <ul class="navbar-nav  ">
+                        <li class="item-nav">
+                            <a class="nav-link " aria-current="page" href="index.html">Inicio</a>
+                        </li>
+                        <li class="item-nav">
+                            <a class="nav-link" href="#">Productos</a>
+                        </li>
+
+                        <li class="item-nav">
+                            <a class="nav-link " aria-current="page" href="#">Sucursales</a>
+                        </li>
+                        <li class="item-nav">
+                            <a class="nav-link" href="#">Sobre nosotros</a>
+                        </li>
+                        <li class="item-nav">
+                            <a class="nav-link" href="contacto.html">Contacto</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex align-content-end " role="search">
+                        <input class="form-control" type="search" placeholder="¿Que estas buscando?"
+                            aria-label="Search">
+                        <button class="btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </form>
+                    <a href="carrito.html">
+                        <button class="btn" type="submit"><i class="fa-solid fa-cart-shopping carrito-logo"
+                                id="carrito-logo"></i></button>
+                    </a>
+                </div>
+            </div>
+            <button id="claro-oscuro"> Modo Oscuro </button>
+        </nav>
+    </header> 
+
+    <section class="container ">
         
         <h1>Dejanos tu mensaje</h1>
-     
-        <div class="mb-3 ">
-            <label for="exampleFormControlInput1" class="form-label ">Nombre</label>
-            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Ingrese su nombre">
-          </div>
-        <div class="mb-3    ">
-            <label for="exampleFormControlInput1" class="form-label ">Ingrese su direccion de E-mail</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-          </div>
-          <div class="mb-3 ">
-            <mensaje for="exampleFormControlTextarea1" class="form-label">Mensaje</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-          </div>
-          <label>
-            <input type="submit" value="Enviar">
-        </label>
+     <form id="form-mensaje">
+
+         <div class="mb-3 ">
+             <label for="exampleFormControlInput1" class="form-label ">Nombre</label>
+             <input name="nombre" type="text" class="form-control input-nombre" id="exampleFormControlInput1" placeholder="Ingrese su nombre">
+           </div>
+         <div class="mb-3    ">
+             <label for="exampleFormControlInput1" class="form-label ">Ingrese su direccion de E-mail</label>
+             <input name="email" type="email" class="form-control input-email" id="exampleFormControlInput1" placeholder="name@example.com">
+           </div>
+           <div class="mb-3 ">
+             <label for="exampleFormControlTextarea1" class="form-label">Mensaje</label>
+             <textarea name="mensaje"  class="form-control input-mensaje" id="exampleFormControlTextarea1" rows="3"></textarea>
+           </div>
+           <label>
+             <input id="boton-enviar" type="submit" value="Enviar">
+         </label>
+     </form>
     </section>
     
 
@@ -48,8 +94,38 @@
 
     </section>
 
+    <footer class="footer-container container-fluid">
+        <div class="row">
+            <div class="col d-flex justify-content-end footer-top">
+                <a href="https://es-la.facebook.com/">
+                    <img class="img-fluid img-content icon" src="Imagenes/facebook.png" alt="icono de facebook">
+                </a>
+                <a href="https://www.instagram.com/">
+                    <img class="img-fluid img-content icon" src="Imagenes/instagram.png" alt="logo de instagram">
+                </a>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col d-flex justify-content-center footer-bot">
+                <p>Tienda 123</p>
+                <p>/</p>
+                <p>Av. Sta Fe 1780, Av. Callao 1400, Uruguay 1380</p>
 
-<script src="index.js"></script>
+            </div>
+
+        </div>
+        <div class="fixed-bottom d-flex justify-content-end">
+            <button type="button" class="btn btn-link"><a href="https://web.whatsapp.com/"> <img
+                        src="Imagenes/whatsapp.png" alt="logo de whatsapp"></a></button>
+        </div>
+    </footer>
+
+<script src="formulario.js"></script>
+    <script src="modos.js"></script>
+
+
+
 </body>
 </html>
 
@@ -57,24 +133,3 @@
 
 
 
-
-
-
-<article class="articulo-carrito row">
-    <div class="nombre-envio col-9">
-        <span class="nombre-item">Puff con baul</span>
-        <p class="envio-item">Envio gratis</p>
-        <div class="botones-item">
-            <ul class="lista-botones">
-                <li>Eliminar</li>
-                <li>Comprar ahora</li>
-                <li>Guardar para despues</li>
-            </ul>
-        </div>
-    </div>
-    <div class="precio-carrito col-3">
-        <span class="precio-numero">
-            $5800
-        </span>
-    </div>
-</article>

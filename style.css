@@ -4,6 +4,16 @@ header{
     z-index: 1;
 }
 
+.modo-oscuro .navbar div div ul li a {
+    
+    color: #e0e0e0;
+    
+}
+.modo-oscuro .navbar-bot{
+    background-color: #121212;
+    border-bottom: 1px solid grey;
+}
+
 .navbar-bot {
     border-bottom: 1px solid #e0e0e0;
     background-color: #fff;
@@ -11,6 +21,21 @@ header{
 
 body header .navbar-bot div div ul {
     padding-right: 100px;
+}
+
+.modo-oscuro{
+    background-color: #121212;
+    color: orangered;
+}
+
+#claro-oscuro{
+    margin-right: 20px;
+    height: 30px;
+    width: 146px;
+    text-align: center;
+    font-size: 15px;
+    background-color: #ffffff;
+    border-color: #ffffff;
 }
 
 .tittle-ofert{
@@ -64,6 +89,17 @@ flex-direction: column;
   
 }
 
+.card{
+    margin-bottom: 80px;
+}
+
+.card-personalizada{
+    height: 350px;
+    display: flex;
+    
+    align-items: center;
+}
+
 
 
 .nombre-item{
@@ -108,4 +144,13 @@ flex-direction: column;
     gap: 4px;
     justify-content: end;
     font-size: 26px;
+}
+
+.boton-elminar{
+    list-style: none;
+}
+
+
+.footer-carrito{
+    margin-top: 600px;
 }
