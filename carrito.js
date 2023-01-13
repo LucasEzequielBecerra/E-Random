@@ -1,7 +1,3 @@
-const obtenerDelLs = (clave) => {
-  return JSON.parse(localStorage.getItem(clave));
-};
-
 let productoParaCarrito = obtenerDelLs("productos");
 
 const actualizarCarrito = () => {

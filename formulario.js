@@ -11,9 +11,14 @@ const subirAlLs = (clave, valor) => {
 
 const datosForm = [];
 
+const nombreValido = "^[a-zA-ZñÑáéíóúÁÉÍÓÚ]+$";
+const emailValido = `/^(([^<>()[].,;:s@"]+(.[^<>()[].,;:s@"]+)*)|(".+"))@(([^<>()[].,;:s@"]+.)+[^<>()[].,;:s@"]{2,})$/`;
+
 form.onsubmit = (event) => {
   event.preventDefault();
-  datosForm.push(inputNombre.value, inputEmail.value, inputMensaje.value);
-  console.log(datosForm);
-  subirAlLs("Nuevo Mensaje", datosForm);
+  if (inputNombre.value.match(nombreValido) != null) {
+    datosForm.push(inputNombre.value, inputEmail.value, inputMensaje.value);
+    console.log(datosForm);
+    subirAlLs("Nuevo Mensaje", datosForm);
+  }
 };
