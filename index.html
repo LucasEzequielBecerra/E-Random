@@ -5,7 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/28d7bb832d.js" crossorigin="anonymous"></script>
@@ -60,41 +63,17 @@
     <main>
 
         <section>
-
-            <div id="carouselExampleIndicators" class="carousel slide">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
-                        class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                        aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                        aria-label="Slide 3"></button>
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide"><img src="https://d3ugyf2ht6aenh.cloudfront.net/stores/001/120/603/themes/idea/1-slide-1673042869235-1125043-cd06781c524d6c7ca2054244cbdb71451673043201-1920-1920.webp?1115472879" alt=""></div>
+                  <div class="swiper-slide"><img src="https://d3ugyf2ht6aenh.cloudfront.net/stores/001/120/603/themes/idea/1-slide-1670868524042-8517849755-3d0faf9aa03467e4cac1d5414d328b611670868578-1920-1920.webp?1115472879" alt=""></div>
+                  <div class="swiper-slide"><img src="https://d3ugyf2ht6aenh.cloudfront.net/stores/001/120/603/themes/idea/1-slide-1670470526446-6657518214-974f2041666554eec6fce36cf2f450651670470598-1920-1920.webp?1115472879" alt=""></div>
+                  
                 </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="https://d3ugyf2ht6aenh.cloudfront.net/stores/001/120/603/themes/idea/1-slide-1670868524042-8517849755-3d0faf9aa03467e4cac1d5414d328b611670868578-1920-1920.webp?2106717400"
-                            class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://d3ugyf2ht6aenh.cloudfront.net/stores/001/120/603/themes/idea/1-slide-1670868524042-1561451175-94d1c5e740fd7b87c2d08958dbce817b1670868579-1920-1920.webp?2106717400"
-                            class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://d3ugyf2ht6aenh.cloudfront.net/stores/001/120/603/themes/idea/1-slide-1670470526446-6657518214-974f2041666554eec6fce36cf2f450651670470598-1920-1920.webp?2106717400"
-                            class="d-block w-100" alt="...">
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+              </div>
         </section>
 
         <section>
@@ -102,10 +81,10 @@
             <h2 class="tittle-ofert">Productos en oferta</h2>
             <div class="container">
 
-                <div class="row fila-productos" >
-                    
-                   
-                    
+                <div class="row fila-productos">
+
+
+
                 </div>
             </div>
         </section>
@@ -142,10 +121,10 @@
     </footer>
 
 
-
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="index.js"></script>
     <script src="modos.js"></script>
-    
+
 </body>
 
 </html>

@@ -7,8 +7,6 @@ botonModos.onclick = () => {
   } else {
     subirAlLs("modo", "modo-oscuro");
   }
-
-  location.reload();
 };
 
 const obtenerDelLs = (clave) => {
