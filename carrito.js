@@ -1,17 +1,18 @@
-let productoParaCarrito = obtenerDelLs("productos");
+let productoParaCarrito = obtenerDelLs("carrito");
 
-const actualizarCarrito = () => {
-  const contenedorCarrito = document.querySelector(".item-venta");
-  productoParaCarrito.forEach((prod) => {
+const contenedorCarrito = document.querySelector(".item-venta");
+
+function actualizarCarrito(array) {
+  array.forEach((prod) => {
     const article = document.createElement("article");
     article.className = "articulo-carrito row";
     article.innerHTML = `
       <div class="nombre-envio col-9">
-      <span class="nombre-item">${prod.nombre}</span>
+      <span class="nombre-item">${prod.title}</span>
       <p class="envio-item">Envio gratis</p>
       <div class="botones-item">
           <ul class="lista-botones">
-              <li id="boton-eliminar${prod.id}">Eliminar</li>
+              <li class="boton-eliminar" id="boton-${prod.id}">Eliminar</li>
               <li>Comprar ahora</li>
               <li>Guardar para despues</li>
           </ul>
@@ -19,28 +20,32 @@ const actualizarCarrito = () => {
   </div>
   <div class="precio-carrito col-3">
       <span class="precio-numero">
-          ${prod.precio}
+         $${prod.price}
       </span>
   </div>
       `;
     contenedorCarrito.appendChild(article);
+  });
+}
+actualizarCarrito(productoParaCarrito);
 
-    const botonEliminar = document.getElementById(`boton-eliminar${prod.id}`);
+function eliminarDelCarrito(array) {
+  const botonEliminar = document.querySelectorAll(`.boton-eliminar`);
+  botonEliminar.forEach((boton) => {
+    boton.onclick = () => {
+      const id = boton.id.slice(6);
+      const filtrarProducto = array.filter((element) => {
+        return element.id != Number(id);
+      });
 
-    botonEliminar.onclick = () => {
-      location.reload();
-      localStorage.removeItem("productos");
-      eliminarDelCarrito();
+      productoParaCarrito = filtrarProducto;
+      localStorage.setItem("carrito", JSON.stringify(productoParaCarrito));
+      console.log(productoParaCarrito);
+      eliminarDelCarrito(productoParaCarrito);
+      actualizarCarrito(productoParaCarrito);
     };
   });
-};
-
-const eliminarDelCarrito = (prodId) => {
-  const item = productoParaCarrito.find((prod) => prod.id === prodId);
-  const index = productoParaCarrito.indexOf(item);
-  productoParaCarrito.splice(index, 1);
-};
-
-actualizarCarrito();
+}
+eliminarDelCarrito(productoParaCarrito);
 
 console.log(productoParaCarrito);

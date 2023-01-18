@@ -77,6 +77,12 @@ body header .navbar-bot div div ul {
     display: flex;
     justify-content: center;
     margin-top: 100px;
+
+    margin-bottom: 100px;
+}
+
+.card{
+    height: 600px;
 }
 
 .footer-container {
@@ -126,16 +132,29 @@ body header .navbar-bot div div ul {
 
 .card {
     margin-bottom: 80px;
+    height: 400px;
 }
 
 .card-personalizada {
+    width: auto;
     height: 350px;
     display: flex;
 
     align-items: center;
 }
 
+.card-img-top{
+width: 100%;
+height: 400px
+}
 
+.card-body{
+    padding-top: 40px;
+}
+
+.nombre-de-producto{
+    padding-top: 40px;
+}
 
 .nombre-item {
     font-size: 20px;
