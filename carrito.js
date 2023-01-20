@@ -8,22 +8,22 @@ const actualizarCarrito = (array) => {
       acc +
       `
     <article class="articulo-carrito row">
-      <div class="nombre-envio col-9">
-        <span class="nombre-item">${prod.title}</span>
-        <p class="envio-item">Envio gratis</p>
-        <div class="botones-item">
-          <ul class="lista-botones">
-              <li class="boton-eliminar" id="boton-${prod.id}">Eliminar</li>
-              <li>Comprar ahora</li>
-              <li>Guardar para despues</li>
-          </ul>
+        <div class="nombre-envio col-9">
+          <span class="nombre-item">${prod.title}</span>
+          <p class="envio-item">Envio gratis</p>
+          <div class="botones-item">
+            <ul class="lista-botones">
+                <li class="boton-eliminar" id="boton-${prod.id}">Eliminar</li>
+                <li>Comprar ahora</li>
+                <li>Guardar para despues</li>
+            </ul>
+          </div>
         </div>
-      </div>
-      <div class="precio-carrito col-3">
-        <span class="precio-numero">
-           $${prod.price}
-        </span>
-      </div>
+        <div class="precio-carrito col-3">
+          <span class="precio-numero">
+            $${prod.price}
+          </span>
+        </div>
     `
     );
   }, "");
@@ -46,6 +46,18 @@ function eliminarDelCarrito(array) {
       console.log(productoParaCarrito);
       actualizarCarrito(productoParaCarrito);
       eliminarDelCarrito(productoParaCarrito);
+      Toastify({
+        text: `Hemos eliminado tu producto del carrito`,
+        duration: 3000,
+        newWindow: true,
+        gravity: "top",
+        position: "right",
+        stopOnFocus: true,
+        style: {
+          background: "linear-gradient(to right, #0c2c33, #93b9d4)",
+        },
+        onClick: function () {},
+      }).showToast();
     };
   });
 }

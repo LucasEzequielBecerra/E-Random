@@ -37,6 +37,10 @@ header {
     z-index: 10;
 }
 
+.swal-overlay {
+    background-color: rgba(43, 165, 137, 0.45);
+  }
+
 .oscuro .navbar div div ul li a {
 
     color: #e0e0e0;

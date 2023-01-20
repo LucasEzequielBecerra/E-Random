@@ -31,4 +31,10 @@ form.onsubmit = (event) => {
       })
       .catch("no hay data");
   }
+
+  swal("El mensaje ha sido enviado con éxito", {
+    icon: "success",
+    buttons: false,
+    timer: 2000,
+  });
 };

@@ -27,7 +27,18 @@ fetch("https://fakestoreapi.com/products")
           carritoLogo.style.color = "orange";
           agregoAlCarrito(element.id);
           subirAlLs("carrito", carrito);
-          console.log(carrito);
+          Toastify({
+            text: "Buena eleccion, ya se agrego al carrito",
+            duration: 3000,
+            newWindow: true,
+            gravity: "top",
+            position: "right",
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+              background: "linear-gradient(to right, #0c2c33, #93b9d4)",
+            },
+            onClick: function () {}, // Callback after click
+          }).showToast();
         };
         const agregoAlCarrito = (pordId) => {
           const item = arrProd.find((prod) => prod.id === pordId);
