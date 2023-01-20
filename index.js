@@ -8,11 +8,11 @@ fetch("https://fakestoreapi.com/products")
     function cardsHtml(array) {
       array.forEach((element) => {
         const card = document.createElement("div");
-        card.className = "col-4";
+        card.className = "col-12 col-md-4";
         card.innerHTML = `
               <div class="card">
                 <div class="card-personalizada">
-                  <img src="${element.image}" class="card-img-top" alt="imagen demostrativa">
+                  <img src="${element.image}" class="card-img-top " alt="imagen demostrativa">
                 </div>
                 <div class="card-body">
                   <h5 class="card-tittle d-flex justify-content-center nombre-de-producto">${element.title}</h5>

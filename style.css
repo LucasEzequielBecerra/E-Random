@@ -159,10 +159,9 @@ justify-content: center;
 }
 
 .card-img-top{
-    display: flex;
 width: 80%;
-height: 250px;
-align-items: center;
+height: 100%;
+object-fit: contain;
 
 
 }
