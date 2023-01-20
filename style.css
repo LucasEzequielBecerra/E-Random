@@ -37,9 +37,14 @@ header {
     z-index: 10;
 }
 
+.contenedor-boton{
+    display: flex;
+}
+
+
 .swal-overlay {
     background-color: rgba(43, 165, 137, 0.45);
-  }
+}
 
 .oscuro .navbar div div ul li a {
 
@@ -53,8 +58,10 @@ header {
 }
 
 .navbar-bot {
+    display: flex;
     border-bottom: 1px solid #e0e0e0;
     background-color: #fff;
+    justify-content: flex-end;
 }
 
 body header .navbar-bot div div ul {
@@ -76,6 +83,11 @@ body header .navbar-bot div div ul {
     background-color: #ffffff;
     border-color: #ffffff;
 }
+
+.carousel{
+    z-index: 0;
+}
+
 
 .tittle-ofert {
     display: flex;
