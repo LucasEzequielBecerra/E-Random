@@ -59,9 +59,10 @@ header {
 
 .navbar-bot {
     display: flex;
+    justify-content: flex-end;
     border-bottom: 1px solid #e0e0e0;
     background-color: #fff;
-    justify-content: flex-end;
+
 }
 
 body header .navbar-bot div div ul {
