@@ -10,7 +10,7 @@ fetch("https://fakestoreapi.com/products")
         const card = document.createElement("div");
         card.className = "col-4";
         card.innerHTML = `
-              <div class="card ">
+              <div class="card">
                 <div class="card-personalizada">
                   <img src="${element.image}" class="card-img-top" alt="imagen demostrativa">
                 </div>
