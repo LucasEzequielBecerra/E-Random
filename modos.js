@@ -1,34 +1,36 @@
 const botonModos = document.querySelector("#claro-oscuro");
-const body = document.querySelector(".modo-claro");
-
-botonModos.onclick = () => {
-  if (modoObtenido !== null) {
-    borrarModo();
-  } else {
-    subirAlLs("modo", "modo-oscuro");
-  }
+const body = document.querySelector("body");
+const subirAlLs = (clave, valor) => {
+  localStorage.setItem(clave, JSON.stringify(valor));
 };
+
+// const modoObtenido = obtenerDelLs("modo-oscuro");
 
 const obtenerDelLs = (clave) => {
   return JSON.parse(localStorage.getItem(clave));
 };
-const modoObtenido = obtenerDelLs("modo");
 
-function cambiarModo() {
-  if (modoObtenido !== null) {
-    body.classList.toggle(modoObtenido);
-  }
+botonModos.onclick = () => {
+  body.classList.toggle("oscuro");
 
-  if (body.className === "modo-claro modo-oscuro") {
+  if (body.className === "oscuro") {
     botonModos.textContent = "Modo claro";
   } else {
-    botonModos.textContent = "Modo oscuro";
+    botonModos.textContent = "Modo Oscuro";
   }
-  console.log(modoObtenido);
-}
 
+  if (body.classList.contains("oscuro")) {
+    subirAlLs("modo-oscuro", "true");
+  } else {
+    subirAlLs("modo-oscuro", "false");
+  }
+};
+
+function cambiarModo() {
+  if (obtenerDelLs("modo-oscuro") === "true") {
+    body.classList.add("oscuro");
+  } else {
+    body.classList.remove("oscuro");
+  }
+}
 cambiarModo();
-
-function borrarModo() {
-  localStorage.removeItem("modo");
-}

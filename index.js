@@ -1,7 +1,3 @@
-const subirAlLs = (clave, valor) => {
-  localStorage.setItem(clave, JSON.stringify(valor));
-};
-
 let carrito = [];
 
 fetch("https://fakestoreapi.com/products")
@@ -14,17 +10,17 @@ fetch("https://fakestoreapi.com/products")
         const card = document.createElement("div");
         card.className = "col-4";
         card.innerHTML = `
-            <div class="card ">
-              <div class="card-personalizada">
-                <img src="${element.image}" class="card-img-top" alt="imagen demostrativa">
+              <div class="card ">
+                <div class="card-personalizada">
+                  <img src="${element.image}" class="card-img-top" alt="imagen demostrativa">
+                </div>
+                <div class="card-body">
+                  <h5 class="card-tittle d-flex justify-content-center nombre-de-producto">${element.title}</h5>
+                  <p class="card-text d-flex justify-content-center precio-de-producto">$ ${element.price}</p>
+                  <a> <div class="btn btn-primary d-flex justify-content-center" id="agregar${element.id}">Agregar al carrito </div></a>
+                </div>
               </div>
-              <div class="card-body">
-                <h5 class="card-tittle d-flex justify-content-center nombre-de-producto">${element.title}</h5>
-                <p class="card-text d-flex justify-content-center precio-de-producto">$ ${element.price}</p>
-                <a> <div class="btn btn-primary d-flex justify-content-center" id="agregar${element.id}">Agregar al carrito </div></a>
-              </div>
-            </div>
-            `;
+              `;
         contenedor.appendChild(card);
         const botonAgregar = document.getElementById(`agregar${element.id}`);
         botonAgregar.onclick = () => {

@@ -37,13 +37,13 @@ header {
     z-index: 10;
 }
 
-.modo-oscuro .navbar div div ul li a {
+.oscuro .navbar div div ul li a {
 
     color: #e0e0e0;
 
 }
 
-.modo-oscuro .navbar-bot {
+.oscuro .navbar-bot {
     background-color: #121212;
     border-bottom: 1px solid grey;
 }
@@ -58,7 +58,7 @@ body header .navbar-bot div div ul {
     
 }
 
-.modo-oscuro {
+.oscuro {
     background-color: #121212;
     color: orangered;
 }
