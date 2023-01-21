@@ -1,9 +1,15 @@
+// Esta es  mi variable global donde voy a pushear los productos solicitados
+
 let carrito = [];
+
+// Llamo a la API fakestoreapi, para hacerle un get y obtener informacion de sus productos
 
 fetch("https://fakestoreapi.com/products")
   .then((res) => res.json())
   .then((data) => {
     const arrProd = data;
+
+    // Creo una funcion que inserte nodos en mi html con el metodo forEach(), usando la informacion de mi API
 
     function cardsHtml(array) {
       array.forEach((element) => {
@@ -23,10 +29,16 @@ fetch("https://fakestoreapi.com/products")
               `;
         contenedor.appendChild(card);
         const botonAgregar = document.getElementById(`agregar${element.id}`);
+
+        // Creo un evento al hacerle click al boton "agregar al carrito", para que pushee los items a mi variable "Carrito", diferenciandolos por su numero de ID y a su vez pushee la informacion de esta variable al localStorage  con la key "carrito"
+
         botonAgregar.onclick = () => {
           carritoLogo.style.color = "orange";
           agregoAlCarrito(element.id);
           subirAlLs("carrito", carrito);
+
+          // Implemento el uso de la libreria Toastify(), para enviarle un mensaje al usuario al enviar un producto al carrito
+
           Toastify({
             text: "Buena eleccion, ya se agrego al carrito",
             duration: 3000,
@@ -55,9 +67,7 @@ fetch("https://fakestoreapi.com/products")
 const contenedor = document.querySelector(".fila-productos");
 const carritoLogo = document.querySelector("#carrito-logo");
 
-// generador de cards
-
-// carrusel swiper
+// Uso de la libreria Swiper, para crear un carrusel de imagenes en mi Index.html
 
 let swiper = new Swiper(".mySwiper", {
   spaceBetween: 30,

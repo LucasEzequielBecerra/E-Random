@@ -1,6 +1,10 @@
+// Obtengo mis productos del localStorage y lo almaceno en una variable
+
 let productoParaCarrito = obtenerDelLs("carrito");
 
 const contenedorCarrito = document.querySelector(".item-venta");
+
+// Creo una funcion que genere nodos en mi html usando la informacion de la variable "productoParaCarrito"
 
 const actualizarCarrito = (array) => {
   const generarCards = array.reduce((acc, prod) => {
@@ -32,6 +36,8 @@ const actualizarCarrito = (array) => {
 
 actualizarCarrito(productoParaCarrito);
 
+// Creo una funcion para eliminar los productos del carrito iterando en los botones "Eliminar" y diferenciandolos por su numero de ID
+
 function eliminarDelCarrito(array) {
   const botonEliminar = document.querySelectorAll(`.boton-eliminar`);
   botonEliminar.forEach((boton) => {
@@ -41,11 +47,15 @@ function eliminarDelCarrito(array) {
         return element.id != Number(id);
       });
 
+      // Actualizo la informacion de mi carrito y la seteo en el localStorage
+
       productoParaCarrito = filtrarProducto;
       localStorage.setItem("carrito", JSON.stringify(productoParaCarrito));
-      console.log(productoParaCarrito);
       actualizarCarrito(productoParaCarrito);
       eliminarDelCarrito(productoParaCarrito);
+
+      // Implemento el uso de la libreria Toastify(), para enviarle un mensaje al usuario al eliminar un producto del carrito
+
       Toastify({
         text: `Hemos eliminado tu producto del carrito`,
         duration: 3000,
@@ -63,5 +73,3 @@ function eliminarDelCarrito(array) {
 }
 
 eliminarDelCarrito(productoParaCarrito);
-
-console.log(productoParaCarrito);
