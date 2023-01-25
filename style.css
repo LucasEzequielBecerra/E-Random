@@ -1,3 +1,13 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+    color: #121212;
+}
 
 .swiper {
     width: 100%;
@@ -126,8 +136,25 @@ body header .navbar-bot div div ul {
     color: black
 }
 
+.volver-tienda{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+.total-precio{
+    display: flex;
+    
+    justify-content: space-around;
+    font-size: 25px;
+}
+
+
+
+
 .tabla-contenedora {
     display: flex;
+    flex-direction: column;
 }
 
 .item-venta {

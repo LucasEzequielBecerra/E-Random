@@ -74,3 +74,21 @@
 
 //     actualizarCarrito(productoParaCarrito);
 //   }
+
+// {/* <div class="container d-flex flex-column align-items-center">
+//             <p>Tu carrito esta vacio :(</p>
+//             <button type="button" class="btn btn-secondary "><a href="index.html">Volver a la tienda</a> </button>
+
+//         </div> */}
+
+// let precioTotal = document.createElement("div");
+//     precioTotal.className = "total-precio";
+//     let total = 0;
+//     array.forEach = () => {
+//       total += prod.price;
+//     };
+//     precioTotal = `
+//         <hr>
+
+//         <div class="total-precio"> <p class="precio">Precio total</p> <p class="numero">${total}</p></div>
+// `;

@@ -3,6 +3,8 @@
 let productoParaCarrito = obtenerDelLs("carrito");
 
 const contenedorCarrito = document.querySelector(".item-venta");
+const contenedorTotal = document.querySelector(".tabla-contenedora");
+const volverTienda = document.querySelector(".volver-tienda");
 
 // Creo una funcion que genere nodos en mi html usando la informacion de la variable "productoParaCarrito"
 
@@ -28,11 +30,30 @@ const actualizarCarrito = (array) => {
             $${prod.price}
           </span>
         </div>
+    </article>
     `
     );
   }, "");
   contenedorCarrito.innerHTML = generarCards;
+
+  if (productoParaCarrito.length === 0) {
+    volverTienda.style.display = "flex";
+  } else {
+    const precio = productoParaCarrito.reduce(
+      (acc, { price }) => acc + price,
+      0
+    );
+    const precioTotal = document.createElement("div");
+    precioTotal.className = "total-precio";
+    precioTotal.innerHTML = `
+    <p class="precio">Precio total</p> <p class="numero">${precio}</p>
+
+    `;
+    contenedorTotal.appendChild(precioTotal);
+  }
 };
+
+console.log(productoParaCarrito);
 
 actualizarCarrito(productoParaCarrito);
 
@@ -51,6 +72,7 @@ function eliminarDelCarrito(array) {
 
       productoParaCarrito = filtrarProducto;
       localStorage.setItem("carrito", JSON.stringify(productoParaCarrito));
+
       actualizarCarrito(productoParaCarrito);
       eliminarDelCarrito(productoParaCarrito);
 
