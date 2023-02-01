@@ -1,6 +1,12 @@
 // Obtengo mis productos del localStorage y lo almaceno en una variable
 
 let productoParaCarrito = obtenerDelLs("carrito");
+let juan = [];
+
+function contador(array, productoAContar) {
+  let va = array.filter((producto) => producto == productoAContar).length;
+  console.log(productoAContar);
+}
 
 const contenedorCarrito = document.querySelector(".item-venta");
 const contenedorTotal = document.querySelector(".tabla-contenedora");
@@ -36,24 +42,24 @@ const actualizarCarrito = (array) => {
   }, "");
   contenedorCarrito.innerHTML = generarCards;
 
+  array.forEach((producto) => contador(array, producto));
+
+  const precioTotal = document.querySelector(".total-precio");
+
   if (productoParaCarrito.length === 0) {
     volverTienda.style.display = "flex";
+    precioTotal.innerHTML = "";
   } else {
     const precio = productoParaCarrito.reduce(
       (acc, { price }) => acc + price,
       0
     );
-    const precioTotal = document.createElement("div");
-    precioTotal.className = "total-precio";
     precioTotal.innerHTML = `
-    <p class="precio">Precio total</p> <p class="numero">${precio}</p>
 
+    <p>Precio total  $${precio}</p>
     `;
-    contenedorTotal.appendChild(precioTotal);
   }
 };
-
-console.log(productoParaCarrito);
 
 actualizarCarrito(productoParaCarrito);
 
