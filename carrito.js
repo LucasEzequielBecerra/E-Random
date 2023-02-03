@@ -2,8 +2,6 @@
 
 let productoParaCarrito = obtenerDelLs("carrito");
 
-let juan = [];
-
 const contenedorCarrito = document.querySelector(".item-venta");
 const contenedorTotal = document.querySelector(".tabla-contenedora");
 const volverTienda = document.querySelector(".volver-tienda");
@@ -16,7 +14,7 @@ const actualizarCarrito = (array) => {
       acc +
       `
     <article class="articulo-carrito row">
-        <div class="nombre-envio col-9">
+        <div class="nombre-envio col-7">
           <span class="nombre-item">${prod.title}</span>
           <p class="envio-item">Envio gratis</p>
           <div class="botones-item">
@@ -27,9 +25,29 @@ const actualizarCarrito = (array) => {
             </ul>
           </div>
         </div>
+        <div class="cantidad-contenedor col-2">
+        <div class="cantidad-compra">
+            <button class="suma-resta">
+                <i class="fa-solid fa-minus"></i>
+
+            </button>
+            <div class="cantidad-numero">
+                <span>
+                    ${prod.cantidad}
+                </span>
+            </div>
+            <button class="suma-resta">
+                <i class="fa-regular fa-plus"></i>
+
+            </button>
+        </div>
+        <p class="cantidad-disponible">
+            99 disponibles
+        </p>
+    </div>
         <div class="precio-carrito col-3">
           <span class="precio-numero">
-            $${prod.price}
+            $${(prod.totalPrice = prod.price * prod.cantidad)}
           </span>
         </div>
     </article>
@@ -44,16 +62,18 @@ const actualizarCarrito = (array) => {
     volverTienda.style.display = "flex";
     precioTotal.innerHTML = "";
   } else {
-    const precio = productoParaCarrito.reduce(
-      (acc, { price }) => acc + price,
+    const totalPrice = productoParaCarrito.reduce(
+      (acc, { totalPrice }) => acc + totalPrice,
       0
     );
     precioTotal.innerHTML = `
 
-    <p>Precio total  $${precio}</p>
+    <p>Precio total  $${totalPrice}</p>
     `;
   }
 };
+
+console.log(productoParaCarrito);
 
 actualizarCarrito(productoParaCarrito);
 

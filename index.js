@@ -41,6 +41,7 @@ fetch("https://fakestoreapi.com/products")
           agregoAlCarrito(element.id);
           subirAlLs("carrito", carrito);
           console.log(carrito);
+
           // Implemento el uso de la libreria Toastify(), para enviarle un mensaje al usuario al enviar un producto al carrito
 
           Toastify({
@@ -63,6 +64,7 @@ fetch("https://fakestoreapi.com/products")
           );
           if (productoExiste) {
             element.cantidad++;
+            // element.price = element.price * element.cantidad;
           } else {
             carrito.push(item);
           }
