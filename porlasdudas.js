@@ -92,3 +92,12 @@
 
 //         <div class="total-precio"> <p class="precio">Precio total</p> <p class="numero">${total}</p></div>
 // `;
+
+// function contador(array, productoAContar) {
+//     let va = array.filter((producto) => producto == productoAContar).length;
+//     console.log(productoAContar);
+//   }
+
+// array.forEach((producto) => contador(array, producto));
+
+// const productoExiste = carrito.find((producto) => producto.id === pordId)

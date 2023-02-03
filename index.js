@@ -9,6 +9,10 @@ fetch("https://fakestoreapi.com/products")
   .then((data) => {
     const arrProd = data;
 
+    arrProd.forEach((prod) => {
+      prod.cantidad = 1;
+    });
+
     // Creo una funcion que inserte nodos en mi html con el metodo forEach(), usando la informacion de mi API
 
     function cardsHtml(array) {
@@ -36,7 +40,7 @@ fetch("https://fakestoreapi.com/products")
           carritoLogo.style.color = "orange";
           agregoAlCarrito(element.id);
           subirAlLs("carrito", carrito);
-
+          console.log(carrito);
           // Implemento el uso de la libreria Toastify(), para enviarle un mensaje al usuario al enviar un producto al carrito
 
           Toastify({
@@ -52,9 +56,16 @@ fetch("https://fakestoreapi.com/products")
             onClick: function () {}, // Callback after click
           }).showToast();
         };
-        const agregoAlCarrito = (pordId) => {
-          const item = arrProd.find((prod) => prod.id === pordId);
-          carrito.push(item);
+        const agregoAlCarrito = (prodId) => {
+          const item = arrProd.find((prod) => prod.id === prodId);
+          const productoExiste = carrito.find(
+            (producto) => producto.id === prodId
+          );
+          if (productoExiste) {
+            element.cantidad++;
+          } else {
+            carrito.push(item);
+          }
         };
       });
     }
