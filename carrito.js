@@ -27,50 +27,98 @@ const actualizarCarrito = (array) => {
         </div>
         <div class="cantidad-contenedor col-2">
         <div class="cantidad-compra">
-            <button class="suma-resta">
+            <button class="suma-resta" id="restar-cantidad${prod.id}">
                 <i class="fa-solid fa-minus"></i>
 
             </button>
             <div class="cantidad-numero">
-                <span>
+                <span id="cantidad${prod.id}">
                     ${prod.cantidad}
                 </span>
             </div>
-            <button class="suma-resta">
+            <button class="suma-resta suma" id="sumar-cantidad${prod.id}">
                 <i class="fa-regular fa-plus"></i>
 
             </button>
         </div>
         <p class="cantidad-disponible">
-            99 disponibles
+            20 disponibles
         </p>
     </div>
         <div class="precio-carrito col-3">
-          <span class="precio-numero">
+          <span class="precio-numero" id="precio-producto${prod.id}">
             $${(prod.totalPrice = prod.price * prod.cantidad)}
-          </span>
-        </div>
-    </article>
-    `
+            </span>
+            </div>
+            </article>
+            `
     );
   }, "");
   contenedorCarrito.innerHTML = generarCards;
 
-  const precioTotal = document.querySelector(".total-precio");
+  contadorDeCantidad(productoParaCarrito);
 
   if (productoParaCarrito.length === 0) {
     volverTienda.style.display = "flex";
     precioTotal.innerHTML = "";
   } else {
-    const totalPrice = productoParaCarrito.reduce(
-      (acc, { totalPrice }) => acc + totalPrice,
-      0
-    );
-    precioTotal.innerHTML = `
-
-    <p>Precio total  $${totalPrice}</p>
-    `;
+    calcularPrecioTotal(productoParaCarrito);
   }
+};
+const contadorDeCantidad = (array) => {
+  array.forEach((prod) => {
+    const sumarCantidad = document.getElementById(`sumar-cantidad${prod.id}`);
+    const restarCantidad = document.getElementById(`restar-cantidad${prod.id}`);
+    const nCantidad = document.getElementById(`cantidad${prod.id}`);
+    const precioProducto = document.getElementById(`precio-producto${prod.id}`);
+
+    if (prod.cantidad === 1) {
+      restarCantidad.classList.add("deshabilitado");
+    }
+
+    if (prod.cantidad === 20) {
+      sumarCantidad.classList.add("deshabilitado");
+    }
+
+    sumarCantidad.onclick = () => {
+      if (prod.cantidad < 20) {
+        prod.cantidad++;
+        prod.totalPrice = prod.price * prod.cantidad;
+        nCantidad.innerText = prod.cantidad;
+        precioProducto.innerText = `$${prod.totalPrice}`;
+        restarCantidad.classList.remove("deshabilitado");
+      }
+      if (prod.cantidad === 20) {
+        sumarCantidad.classList.add("deshabilitado");
+      }
+      calcularPrecioTotal(productoParaCarrito);
+    };
+    restarCantidad.onclick = () => {
+      if (prod.cantidad > 1) {
+        sumarCantidad.classList.remove("deshabilitado");
+        prod.cantidad--;
+        prod.totalPrice = prod.price * prod.cantidad;
+        nCantidad.innerText = prod.cantidad;
+        precioProducto.innerText = `$${prod.totalPrice}`;
+      }
+      if (prod.cantidad === 1) {
+        restarCantidad.classList.add("deshabilitado");
+      }
+      calcularPrecioTotal(productoParaCarrito);
+    };
+  });
+};
+
+const calcularPrecioTotal = (array) => {
+  const precioTotal = document.querySelector(".total-precio");
+  const totalPrice = productoParaCarrito.reduce(
+    (acc, { totalPrice }) => acc + totalPrice,
+    0
+  );
+  precioTotal.innerHTML = `
+            
+            <p>Precio total  $${totalPrice}</p>
+            `;
 };
 
 console.log(productoParaCarrito);

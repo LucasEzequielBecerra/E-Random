@@ -182,6 +182,12 @@ body header .navbar-bot div div ul {
 .suma-resta{
     background-color: #fff;
     border: 0px;
+    
+}
+
+.deshabilitado{
+    cursor:not-allowed !important;
+    color: grey;
 }
 
 .cantidad-compra{
