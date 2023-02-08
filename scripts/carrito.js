@@ -1,6 +1,9 @@
 // Obtengo mis productos del localStorage y lo almaceno en una variable
+let productoParaCarrito;
 
-let productoParaCarrito = obtenerDelLs("carrito");
+obtenerDelLs("carrito")
+  ? (productoParaCarrito = obtenerDelLs("carrito"))
+  : (productoParaCarrito = []);
 
 const contenedorCarrito = document.querySelector(".item-venta");
 const contenedorTotal = document.querySelector(".tabla-contenedora");
@@ -87,6 +90,8 @@ const contadorDeCantidad = (array) => {
         nCantidad.innerText = prod.cantidad;
         precioProducto.innerText = `$${prod.totalPrice}`;
         restarCantidad.classList.remove("deshabilitado");
+        localStorage.removeItem("carrito");
+        localStorage.setItem("carrito", JSON.stringify(productoParaCarrito));
       }
       if (prod.cantidad === 20) {
         sumarCantidad.classList.add("deshabilitado");
@@ -100,6 +105,8 @@ const contadorDeCantidad = (array) => {
         prod.totalPrice = prod.price * prod.cantidad;
         nCantidad.innerText = prod.cantidad;
         precioProducto.innerText = `$${prod.totalPrice}`;
+        localStorage.removeItem("carrito");
+        localStorage.setItem("carrito", JSON.stringify(productoParaCarrito));
       }
       if (prod.cantidad === 1) {
         restarCantidad.classList.add("deshabilitado");
@@ -109,8 +116,9 @@ const contadorDeCantidad = (array) => {
   });
 };
 
+const precioTotal = document.querySelector(".total-precio");
+
 const calcularPrecioTotal = (array) => {
-  const precioTotal = document.querySelector(".total-precio");
   const totalPrice = productoParaCarrito.reduce(
     (acc, { totalPrice }) => acc + totalPrice,
     0

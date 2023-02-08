@@ -38,9 +38,10 @@ fetch("https://fakestoreapi.com/products")
 
         botonAgregar.onclick = () => {
           carritoLogo.style.color = "orange";
+          carrito = JSON.parse(localStorage.getItem("carrito"));
           agregoAlCarrito(element.id);
-          subirAlLs("carrito", carrito);
-          console.log(carrito);
+
+          // console.log(carrito);
 
           // Implemento el uso de la libreria Toastify(), para enviarle un mensaje al usuario al enviar un producto al carrito
 
@@ -63,16 +64,16 @@ fetch("https://fakestoreapi.com/products")
             (producto) => producto.id === prodId
           );
           if (productoExiste) {
-            element.cantidad++;
-            // element.price = element.price * element.cantidad;
+            productoExiste.cantidad++;
+            console.log(carrito);
+            localStorage.setItem("carrito", JSON.stringify(carrito));
           } else {
             carrito.push(item);
+            localStorage.setItem("carrito", JSON.stringify(carrito));
           }
         };
       });
     }
-    const productosElegidos = obtenerDelLs("carrito");
-    carrito = productosElegidos || [];
 
     cardsHtml(arrProd);
   });

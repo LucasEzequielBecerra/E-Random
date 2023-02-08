@@ -1,18 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="../estilos/style.css">
     <script src="https://kit.fontawesome.com/28d7bb832d.js" crossorigin="anonymous"></script>
-    <title>Home | Pagina de Inicio</title>
+    <title>Contacto | Pagina de Contacto</title>
 </head>
-
 <body >
 
     <header>
@@ -28,10 +24,10 @@
                 <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
                     <ul class="navbar-nav  ">
                         <li class="item-nav">
-                            <a class="nav-link " aria-current="page" href="index.html">Inicio</a>
+                            <a class="nav-link " aria-current="page" href="../index.html">Inicio</a>
                         </li>
                         <li class="item-nav">
-                            <a class="nav-link" href="index.html">Productos</a>
+                            <a class="nav-link" href="../index.html">Productos</a>
                         </li>
 
                         <li class="item-nav">
@@ -60,44 +56,55 @@
                 <button id="claro-oscuro"> Modo Oscuro </button>
             </div>
         </nav>
-    </header>
+    </header> 
 
-    <main>      
-        <section>
-            <div class="container mt-5">
-                <h1>Tu carrito</h1>
-                <hr>
-                <div class="tabla-contenedora">
-                    <div class="item-venta">
-                
-                    </div>
-                
-                </div>
-                <div class="container volver-tienda">
-                    <p>Tu carrito esta vacio :(</p>
-                    <button type="button" class="btn btn-secondary "><a href="index.html">Volver a la tienda</a> </button>
-                </div>
-                <div class="total-precio"></div>
-                
-            </div>
+    <section class="container ">
+        
+        <h1>Dejanos tu mensaje</h1>
+    <form id="form-mensaje">
+
+        <div class="mb-3 ">
+            <label for="exampleFormControlInput1" class="form-label ">Nombre</label>
+            <input name="nombre" type="text" class="form-control input-nombre" id="exampleFormControlInput1" placeholder="Ingrese su nombre">
+        </div>
+        <div class="mb-3    ">
+            <label for="exampleFormControlInput1" class="form-label ">Ingrese su direccion de E-mail</label>
+            <input name="email" type="email" class="form-control input-email" id="exampleFormControlInput1" placeholder="name@example.com">
+        </div>
+        <div class="mb-3 ">
+            <label for="exampleFormControlTextarea1" class="form-label">Mensaje</label>
+            <textarea name="mensaje"  class="form-control input-mensaje" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+            <label>
+            <input id="boton-enviar" type="submit" value="Enviar">
+            </label>
+    </form>
+    </section>
     
-    
-    
-        </section>
-    </main>
 
 
 
+    <section class="container seccion-contacto ">
+        <h2>Contacto</h2>
+        <div class="">
+            <p>Telefono</p>
+            <h5>1145788956</h5>
+        </div>
+        <div>
+            <p>Email</p>
+            <h5>jajaj@gmail.com</h5>            
+        </div>
 
+    </section>
 
-    <footer id="footer" class="footer-container container-fluid footer-carrito">
+    <footer id="footer" class="footer-container container-fluid">
         <div class="row">
             <div class="col d-flex justify-content-end footer-top">
                 <a href="https://es-la.facebook.com/">
-                    <img class="img-fluid img-content icon" src="./imagenes/facebook.png" alt="icono de facebook">
+                    <img class="img-fluid img-content icon" src="../imagenes/facebook.png" alt="icono de facebook">
                 </a>
                 <a href="https://www.instagram.com/">
-                    <img class="img-fluid img-content icon" src="./imagenes/instagram.png" alt="logo de instagram">
+                    <img class="img-fluid img-content icon" src="../imagenes/instagram.png" alt="logo de instagram">
                 </a>
             </div>
         </div>
@@ -113,7 +120,7 @@
         </div>
         <div class="fixed-bottom d-flex justify-content-end">
             <button type="button" class="btn btn-link"><a href="https://web.whatsapp.com/"> <img
-                        src="./imagenes/whatsapp.png" alt="logo de whatsapp"></a></button>
+                        src="../imagenes/whatsapp.png" alt="logo de whatsapp"></a></button>
         </div>
     </footer>
 
@@ -121,9 +128,15 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-    <script src="modos.js"></script>
-    <script src="carrito.js"></script>
-</body>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="../scripts/formulario.js"></script>
+    <script src="../scripts/modos.js"></script>
 
+
+
+</body>
 </html>
+
+
+
+
