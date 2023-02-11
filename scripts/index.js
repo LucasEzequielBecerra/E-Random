@@ -1,6 +1,8 @@
 // Esta es  mi variable global donde voy a pushear los productos solicitados
 
 let carrito = [];
+const contenedor = document.querySelector(".fila-productos");
+const carritoLogo = document.querySelector("#carrito-logo");
 
 // Llamo a la API fakestoreapi, para hacerle un get y obtener informacion de sus productos
 
@@ -8,6 +10,8 @@ fetch("https://fakestoreapi.com/products")
   .then((res) => res.json())
   .then((data) => {
     const arrProd = data;
+
+    // Agrego una propiedad a mis objetos extraidos del fetch para poder crear la funcion de contador
 
     arrProd.forEach((prod) => {
       prod.cantidad = 1;
@@ -41,8 +45,6 @@ fetch("https://fakestoreapi.com/products")
           carrito = JSON.parse(localStorage.getItem("carrito"));
           agregoAlCarrito(element.id);
 
-          // console.log(carrito);
-
           // Implemento el uso de la libreria Toastify(), para enviarle un mensaje al usuario al enviar un producto al carrito
 
           Toastify({
@@ -58,28 +60,21 @@ fetch("https://fakestoreapi.com/products")
             onClick: function () {}, // Callback after click
           }).showToast();
         };
-        const agregoAlCarrito = (prodId) => {
-          const item = arrProd.find((prod) => prod.id === prodId);
-          const productoExiste = carrito.find(
-            (producto) => producto.id === prodId
-          );
-          if (productoExiste) {
-            productoExiste.cantidad++;
-            console.log(carrito);
-            localStorage.setItem("carrito", JSON.stringify(carrito));
-          } else {
-            carrito.push(item);
-            localStorage.setItem("carrito", JSON.stringify(carrito));
-          }
-        };
       });
     }
 
+    const agregoAlCarrito = (prodId) => {
+      const item = arrProd.find((prod) => prod.id === prodId);
+      const productoExiste = carrito.find((producto) => producto.id === prodId);
+      productoExiste
+        ? productoExiste.cantidad++ &&
+          localStorage.setItem("carrito", JSON.stringify(carrito))
+        : carrito.push(item),
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+    };
+
     cardsHtml(arrProd);
   });
-
-const contenedor = document.querySelector(".fila-productos");
-const carritoLogo = document.querySelector("#carrito-logo");
 
 // Uso de la libreria Swiper, para crear un carrusel de imagenes en mi Index.html
 

@@ -8,6 +8,7 @@ obtenerDelLs("carrito")
 const contenedorCarrito = document.querySelector(".item-venta");
 const contenedorTotal = document.querySelector(".tabla-contenedora");
 const volverTienda = document.querySelector(".volver-tienda");
+const precioTotal = document.querySelector(".total-precio");
 
 // Creo una funcion que genere nodos en mi html usando la informacion de la variable "productoParaCarrito"
 
@@ -61,12 +62,9 @@ const actualizarCarrito = (array) => {
 
   contadorDeCantidad(productoParaCarrito);
 
-  if (productoParaCarrito.length === 0) {
-    volverTienda.style.display = "flex";
-    precioTotal.innerHTML = "";
-  } else {
-    calcularPrecioTotal(productoParaCarrito);
-  }
+  productoParaCarrito.length === 0
+    ? (volverTienda.style.display = "flex") && (precioTotal.innerHTML = "")
+    : calcularPrecioTotal(productoParaCarrito);
 };
 const contadorDeCantidad = (array) => {
   array.forEach((prod) => {
@@ -116,9 +114,7 @@ const contadorDeCantidad = (array) => {
   });
 };
 
-const precioTotal = document.querySelector(".total-precio");
-
-const calcularPrecioTotal = (array) => {
+const calcularPrecioTotal = (arr) => {
   const totalPrice = productoParaCarrito.reduce(
     (acc, { totalPrice }) => acc + totalPrice,
     0
@@ -128,8 +124,6 @@ const calcularPrecioTotal = (array) => {
             <p>Precio total  $${totalPrice}</p>
             `;
 };
-
-console.log(productoParaCarrito);
 
 actualizarCarrito(productoParaCarrito);
 
