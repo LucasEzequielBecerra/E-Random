@@ -1,6 +1,9 @@
 // Esta es  mi variable global donde voy a pushear los productos solicitados
 
 let carrito = [];
+if (localStorage.getItem("carrito") === null) {
+  localStorage.setItem("carrito", JSON.stringify([]));
+}
 const contenedor = document.querySelector(".fila-productos");
 const carritoLogo = document.querySelector("#carrito-logo");
 
@@ -43,6 +46,7 @@ fetch("https://fakestoreapi.com/products")
         botonAgregar.onclick = () => {
           carritoLogo.style.color = "orange";
           carrito = JSON.parse(localStorage.getItem("carrito"));
+
           agregoAlCarrito(element.id);
 
           // Implemento el uso de la libreria Toastify(), para enviarle un mensaje al usuario al enviar un producto al carrito

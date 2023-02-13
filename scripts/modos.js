@@ -17,28 +17,20 @@ const obtenerDelLs = (clave) => {
 botonModos.onclick = () => {
   body.classList.toggle("oscuro");
 
-  if (body.className === "oscuro") {
-    botonModos.textContent = "Modo claro";
-  } else {
-    botonModos.textContent = "Modo Oscuro";
-  }
+  body.className === "oscuro"
+    ? (botonModos.textContent = "Modo claro") &&
+      localStorage.setItem("modo-oscuro", JSON.stringify("true"))
+    : (botonModos.textContent = "Modo Oscuro") &&
+      localStorage.setItem("modo-oscuro", JSON.stringify("false"));
 
   // Guardo esta informacion en el localStorage para que no se me actualize la informacion que genero el evento al actualizar la pagina
-
-  if (body.classList.contains("oscuro")) {
-    subirAlLs("modo-oscuro", "true");
-  } else {
-    subirAlLs("modo-oscuro", "false");
-  }
 };
 
 // Por ultimo creo la funcion que verifique lo seteado en el localStorage
 
 function cambiarModo() {
-  if (obtenerDelLs("modo-oscuro") === "true") {
-    body.classList.add("oscuro");
-  } else {
-    body.classList.remove("oscuro");
-  }
+  obtenerDelLs("modo-oscuro") === "true"
+    ? (botonModos.textContent = "Modo claro") && body.classList.add("oscuro")
+    : body.classList.remove("oscuro");
 }
 cambiarModo();

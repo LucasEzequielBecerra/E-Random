@@ -32,7 +32,7 @@ form.onsubmit = (event) => {
       .then((data) => {
         console.log(data);
       })
-      .catch("no hay data");
+      .catch();
 
     // Uso la libreria SweetAlert para avisarle al usuario que su mensaje ha sido enviado con exito
 
