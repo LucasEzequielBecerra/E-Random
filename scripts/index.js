@@ -39,6 +39,8 @@ fetch("https://fakestoreapi.com/products")
               </div>
               `;
         contenedor.appendChild(card);
+
+
         const botonAgregar = document.getElementById(`agregar${element.id}`);
 
         // Creo un evento al hacerle click al boton "agregar al carrito", para que pushee los items a mi variable "Carrito", diferenciandolos por su numero de ID y a su vez pushee la informacion de esta variable al localStorage  con la key "carrito"
@@ -61,7 +63,7 @@ fetch("https://fakestoreapi.com/products")
             style: {
               background: "linear-gradient(to right, #0c2c33, #93b9d4)",
             },
-            onClick: function () {}, // Callback after click
+            onClick: function () { }, // Callback after click
           }).showToast();
         };
       });
@@ -72,7 +74,7 @@ fetch("https://fakestoreapi.com/products")
       const productoExiste = carrito.find((producto) => producto.id === prodId);
       productoExiste
         ? productoExiste.cantidad++ &&
-          localStorage.setItem("carrito", JSON.stringify(carrito))
+        localStorage.setItem("carrito", JSON.stringify(carrito))
         : carrito.push(item),
         localStorage.setItem("carrito", JSON.stringify(carrito));
     };
