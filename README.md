@@ -1,8 +1,7 @@
 
 # E-Random
 
-Este es mi primer proyecto con javascript. Es un e-commerce hecho con las tecnologias de HTML, CSS y JavaScript, usando algunas librerias como Bootstrap y fontawesome 
-
+This is my first project with javascript. It is an e-commerce made with HTML, CSS and JavaScript technologies, using some libraries such as Bootstrap and fontawesome
 
 
 ## Getting Started
